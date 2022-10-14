@@ -1,0 +1,19 @@
+header {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: linear-gradient(#e66465, #9198e5);
+    height: 80px;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-link {
+    font-family: 'Lato';
+    font-size: 25px;
+    right: 0%;
+}
+

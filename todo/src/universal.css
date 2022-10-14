@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+:root {
+    --color-bg: rgb(239, 239, 239);
+    --color-primary: red;
+    --color-white: #FFF;
+    --color-bg-opacity: rgba(0, 0, 0, 0.5);
+
+    --transition: all 400ms ease;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+::-webkit-scrollbar {
+    display: none;
+  }
+
+body {
+    font-family: 'Lato';
+    background: var(--color-bg);
+}
+
+a {
+    color: var(--color-primary);
+    transition: var(--transition);
+  }
+  
+a:hover {
+    color: var(--color-white);
+  }
+  
+.btn {
+    width: max-content;
+    display: inline-block;
+    color: var(--color-primary);
+    padding: 0.75rem 1.2rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    border: 1px solid var(--color-primary);
+    transition: var(--transition);
+  }
+  
+.btn:hover {
+    background: var(--color-white);
+    color: var(--color-bg);
+    border-color: transparent;
+  }
+  
+.btn-primary {
+    background: var(--color-primary);
+    color: var(--color-bg);
+  }

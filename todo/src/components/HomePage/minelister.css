@@ -1,0 +1,23 @@
+section {
+    width: 90%;
+    padding: 10% 5%;
+}
+.list-menu {
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: relative;
+    z-index: 3;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.bg-blur {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-bg-opacity);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: none;
+}
