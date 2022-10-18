@@ -6,6 +6,7 @@ import { CgProfile } from 'react-icons/cg';
 import "./nav.css";
 
 const Nav = () => {
+  
     const [isShown, setIsShown] = useState(false);
 
     const handleClick = () => {

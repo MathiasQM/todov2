@@ -9,6 +9,8 @@ section {
     z-index: 3;
     padding: 10px;
     margin-top: 10px;
+    display: none;
+    transition: 0.3s ease-in-out;
 }
 
 .bg-blur {
@@ -20,4 +22,8 @@ section {
     left: 0;
     z-index: 2;
     display: none;
+}
+
+.list-active {
+    display: block;
 }
