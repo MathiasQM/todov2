@@ -1,24 +1,18 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getStorage } from "firebase/storage";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDfbpqhmw24Y7EAX0Wzddj1Mnaw1j-dY1I",
-  authDomain: "todo-d94fb.firebaseapp.com",
-  databaseURL: "https://todo-d94fb-default-rtdb.europe-west1.firebasedatabase.app/",
-  projectId: "todo-d94fb",
-  storageBucket: "todo-d94fb.appspot.com",
-  messagingSenderId: "802090839200",
-  appId: "1:802090839200:web:b6c322f49470ecc1aaadc5",
-  measurementId: "G-66JNKXY82T"
+  apiKey: "AIzaSyCOaYPor6YrHQCqnuVhULwOHWKHttP6kW8",
+  authDomain: "to-do-25365.firebaseapp.com",
+  projectId: "to-do-25365",
+  storageBucket: "to-do-25365.appspot.com",
+  messagingSenderId: "1000004516550",
+  appId: "1:1000004516550:web:83ad04b2987cd0cf8ff5c7",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app)
 
-export { db };
+export const storage = getStorage(app);
+
+export const db = getFirestore(app);
