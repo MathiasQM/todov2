@@ -1,6 +1,6 @@
 section {
     width: 90%;
-    padding: 10% 5%;
+    padding: 8% 5%;
 }
 .list-menu {
     border-radius: 12px;
@@ -11,6 +11,8 @@ section {
     margin-top: 10px;
     display: none;
     transition: 0.3s ease-in-out;
+    width: 85%;
+    background-color: var(--color-bg);
 }
 
 .bg-blur {
@@ -26,4 +28,11 @@ section {
 
 .list-active {
     display: block;
+    position: absolute;
+}
+
+.list-titel {
+    border-radius: 5px;
+    padding: 5px;
+    width: 90%;
 }

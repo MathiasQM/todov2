@@ -63,11 +63,12 @@ const MineLister = () => {
         </div>
         <div className={active}>     
             <form onSubmit={handleSubmit}>
-                <input placeholder='Navngiv din liste'
+                <input className="list-titel"
+                placeholder='Navngiv din liste'
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)} />
-                <button >Tilføj</button>
+                <button className="add-button">Tilføj</button>
             </form>
             <form>
                 <div >

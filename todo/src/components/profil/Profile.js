@@ -1,4 +1,5 @@
 import React from 'react'
+import Notifikationer from './Notifikationer'
 
 import {CgProfile} from 'react-icons/cg'
 import './profile.css'

@@ -3,7 +3,9 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../firebaseConfig";
 import DeleteNote from "./DeleteNote";
 import "./noter.css";
-import { AiOutlineUnorderedList } from "react-icons/ai"
+import { AiOutlineUnorderedList } from "react-icons/ai";
+import BlockIcon from "./blockicon.svg"
+
 
 export default function Noter() {
   const [noter, setNoter] = useState([]);
@@ -54,10 +56,12 @@ export default function Noter() {
   return (
     <div className="block">
 
-      <div>
+      <div className="layout-box">
         <h3>Layout</h3>
-        <h4 className='list' onClick={listToggle}><AiOutlineUnorderedList /></h4>
-        <h4 className='list' onClick={blockToggle}>Block</h4>
+        <div className="filter-box">
+          <h4 className='list' onClick={listToggle}><AiOutlineUnorderedList /></h4>
+          <img src={BlockIcon} alt="BlockIcon" className='block-icon' onClick={blockToggle}/>
+        </div>
       </div>
       <div className={activetwo}>
         {noter.length === 0 ? (

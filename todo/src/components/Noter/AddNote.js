@@ -51,7 +51,7 @@ export default function Noter() {
         setFormData({
           Titel: "",
           Beskrivelse: "",
-          image: "",
+          oprettet: ""
         });
 
         getDownloadURL(uploadImage.snapshot.ref).then((url) => {

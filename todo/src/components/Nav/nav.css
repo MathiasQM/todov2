@@ -1,16 +1,27 @@
 header {
     width: 100vw;
-    background: #FFA53C;
+    
     height: 80px;
     color: white;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-size: cover;
+    overflow-y: auto;
 }
 
 nav {
-    padding: 10px;
+    width: 100%;
     display: flex;
-    justify-self: flex-end;
+    justify-content: space-around;
 
+}
+
+.add-profile {
+    width: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .nav-link {
@@ -21,4 +32,27 @@ nav {
     text-decoration: none;
 }
 
+header > img {
+position: absolute;
+top: 70px;
+}
 
+.wave {
+    position: absolute;
+    width: 100vw;
+    height: auto;
+    top: 0;
+    z-index: -1;
+}
+
+@media only screen and (min-width: 1000px) {
+    .wave {
+        top: -50px;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    .wave {
+        top: -90px;
+    }
+}
