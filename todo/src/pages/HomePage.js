@@ -6,6 +6,7 @@ import AddNote from "../components/Noter/AddNote";
 const HomePage = () => {
   return (
     <div className="container">
+      <MineLister />
       <div className="row">
         <div className="col-md-4">
           <AddNote />
