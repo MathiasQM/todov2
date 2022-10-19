@@ -85,6 +85,19 @@ textarea.form-control {
   margin-top: 2em;
 }
 
+.bordernote-active {
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
+}
+
 .btn {
   padding: 0 0.8em 0 0.8em;
 }
+
+.flex-box-active {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-9-active {}
