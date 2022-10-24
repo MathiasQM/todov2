@@ -1,19 +1,58 @@
 header {
     width: 100vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background: linear-gradient(#e66465, #9198e5);
+    
     height: 80px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-size: cover;
+    overflow-y: auto;
 }
 
 nav {
+    width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
+
+}
+
+.add-profile {
+    width: 15%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .nav-link {
     font-family: 'Lato';
     font-size: 25px;
     right: 0%;
+    color: white;
+    text-decoration: none;
 }
 
+header > img {
+position: absolute;
+top: 70px;
+}
+
+.wave {
+    position: absolute;
+    width: 100vw;
+    height: auto;
+    top: 0;
+    z-index: -1;
+}
+
+@media only screen and (min-width: 1000px) {
+    .wave {
+        top: -50px;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    .wave {
+        top: -90px;
+    }
+}

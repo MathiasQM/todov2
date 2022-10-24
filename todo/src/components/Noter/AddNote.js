@@ -1,18 +1,21 @@
 import React from "react";
 import { useState } from "react";
-import { Timestamp, collection, addDoc } from "firebase/firestore";
+import { Timestamp, collection, addDoc, getFirestore, doc, setDoc } from "firebase/firestore";
 import { uploadBytesResumable, getDownloadURL, ref } from "firebase/storage";
 import { storage, db } from "../../firebaseConfig";
 import { toast } from "react-toastify";
+
 import "./noter.css";
 
-export default function Noter() {
+export default function Noter({title, setTitle, key, valgtListe}) {
+
   const [formData, setFormData] = useState({
     Titel: "",
     Beskrivelse: "",
     image: "",
     oprettet: Timestamp.now().toDate(),
   });
+
 
   const [progress, setProgress] = useState(0);
 
@@ -51,12 +54,17 @@ export default function Noter() {
         setFormData({
           Titel: "",
           Beskrivelse: "",
-          image: "",
+          oprettet: ""
         });
+        
+
+        // Add's todo to list
+        const noterRef = doc(db, "minliste", "5v7krEiV7Q8AWA2cj5yl" );
+        const minListeRef = collection(db, "minliste");
+        const listeId = String(key);
 
         getDownloadURL(uploadImage.snapshot.ref).then((url) => {
-          const noterRef = collection(db, "Noter");
-          addDoc(noterRef, {
+          setDoc(doc(db, "Skole"), {
             Titel: formData.Titel,
             Beskrivelse: formData.Beskrivelse,
             imageUrl: url,
@@ -75,7 +83,9 @@ export default function Noter() {
   };
 
   return (
+      
     <div className="lavtodo">
+      
       {/* beskrivelse */}
       <textarea
         name="Beskrivelse"
@@ -84,11 +94,15 @@ export default function Noter() {
         placeholder="Hvad vil du gerne have gjort?"
         onChange={(e) => handleChange(e)}
       />
+
+      <div className="pick-day">
       <div className="addbutton">
         <button className="btn-primary" onClick={handlePublish}>
           Tilføj
         </button>
       </div>
+    </div>
+    
     </div>
   );
 }
