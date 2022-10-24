@@ -64,7 +64,7 @@ export default function Noter({title, setTitle, key, valgtListe}) {
         const listeId = String(key);
 
         getDownloadURL(uploadImage.snapshot.ref).then((url) => {
-          setDoc(doc(db, "Skole"), {
+          setDoc(doc(db, "minliste", valgtListe), {
             Titel: formData.Titel,
             Beskrivelse: formData.Beskrivelse,
             imageUrl: url,
