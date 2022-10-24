@@ -5,17 +5,16 @@ import AddNote from "../components/Noter/AddNote";
 import Liste from "../components/HomePage/liste/Liste.js";
 import {useEffect, useState} from "react"
 import { db } from '../firebaseConfig';
-import { collection, addDoc, setDoc, query, onSnapshot, doc  } from 'firebase/firestore';
+import { Timestamp, collection, addDoc, setDoc, query, onSnapshot, doc  } from 'firebase/firestore';
 
 
 const HomePage = () => {
-
+  
   const [valgtListe, setValgtListe] = useState('')
-
   //Henter Lists fra firebase og indsætter i listen
 
   const [getLists, setGetLists] = useState([]);
-  const minListeRef = collection(db, "minliste");
+  const minListeRef = collection(db, "Arbejde");
 
   useEffect(() => {
       const q = query(minListeRef)
@@ -39,8 +38,8 @@ const HomePage = () => {
       e.preventDefault();
       if (title !== "") {
         //         await setDoc(doc(db, "minliste", "la"), {
-          setDoc(doc(db, 'minliste', title), {
-            title: "Kaffe",
+          setDoc(doc(db, title, 'Tom'), {
+            title,
             completed: false,
           }); 
           setTitle("");
@@ -48,7 +47,7 @@ const HomePage = () => {
   
       console.log('form submitted ✅');
   };
-  
+
 
   return (
     <div className="container">
@@ -61,7 +60,7 @@ const HomePage = () => {
       </div>
 
       <div className="col-md-8">
-        <Noter />
+        <Noter title={title} handleSubmit={handleSubmit} valgtListe={valgtListe}/>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { collection, onSnapshot, orderBy, query, doc  } from "firebase/firestore";
+import { Timestamp, collection, updateDoc, onSnapshot, orderBy, query, doc, setDoc  } from "firebase/firestore";
 import React, { useState, useEffect } from "react";
 import { db } from "../../firebaseConfig";
 import DeleteNote from "./DeleteNote";
@@ -9,13 +9,13 @@ import BlockIcon from "./blockicon.svg"
 
 // Henter todos
 
-export default function Noter() {
+export default function Noter({valgtListe}) {
   const [noter, setNoter] = useState([]);
 
 
   //Viser ALLE ToDos fra ALLE Lister
   useEffect(() => {
-    const noterRef = collection(db, "minliste");
+    const noterRef = collection(db, "Arbejde");
     const q = query(noterRef, orderBy("oprettet", "desc"));
     onSnapshot(q, (snapshot) => {
       const noter = snapshot.docs.map((doc) => ({
@@ -58,6 +58,27 @@ export default function Noter() {
       : setActivethree("col-9")
   };
 
+  // Update Todo
+
+  const [formData, setFormData] = useState({
+    Titel: "",
+    Beskrivelse: "",
+    image: "",
+    oprettet: Timestamp.now().toDate(),
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  setDoc(doc(db, "Arbejde", "Kaffe"), {
+    Titel: formData.Titel,
+    Beskrivelse: formData.Beskrivelse,
+    imageUrl: "https://firebasestorage.googleapis.com/v0/b/to-do-25365.appspot.com/o/images%2F1666606519547undefined?alt=media&token=0541a9e8-fe10-4e25-80e5-73290714d07c",
+    oprettet: Timestamp.now().toDate(),
+  });
+
+
   return (
     <div className="block">
 
@@ -72,11 +93,11 @@ export default function Noter() {
         {noter.length === 0 ? (
           <p>Igen noter fundet</p>
         ) : (
-          noter.map(({ id, Beskrivelse, oprettet }) => (
+          noter.map(({ id, oprettet }) => (
             <div className={active} key={id}>
               <div className="row">
                 <div className={activethree}>
-                  <p>{Beskrivelse}</p>
+                    <input for="update" type="text" placeholder={id} onChange={handleChange} name="Beskrivelse"></input>
                   <p>{oprettet.toDate().toDateString()}</p>
                   <DeleteNote id={id} />
                 </div>

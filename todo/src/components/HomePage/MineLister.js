@@ -18,6 +18,7 @@ const MineLister = ({getLists, handleSubmit, title, setTitle, valgtListe, setVal
         ? setActive("list-menu list-active")
         : setActive("list-menu");
     };
+      
     
   return (
     <section>
@@ -25,12 +26,12 @@ const MineLister = ({getLists, handleSubmit, title, setTitle, valgtListe, setVal
             <h3>Mine Lister</h3>
         </div>
         <div className={active}>     
-            <form onSubmit={handleSubmit}>
+            <form >
                 <input className="list-titel"
                 placeholder='Navngiv din liste'
                 type="text"
                 value={title}
-                onChange={(e) => setTitle(e.target.value)} />
+                onChange={(e) => setTitle(e.target.value)}  />
                 <button className="add-button">Tilføj</button>
             </form>
             <form>

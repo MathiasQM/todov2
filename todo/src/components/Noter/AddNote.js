@@ -7,7 +7,8 @@ import { toast } from "react-toastify";
 
 import "./noter.css";
 
-export default function Noter({title, setTitle, key, valgtListe}) {
+export default function Noter({title, setTitle, key}) {
+
 
   const [formData, setFormData] = useState({
     Titel: "",
@@ -15,7 +16,6 @@ export default function Noter({title, setTitle, key, valgtListe}) {
     image: "",
     oprettet: Timestamp.now().toDate(),
   });
-
 
   const [progress, setProgress] = useState(0);
 
@@ -64,7 +64,7 @@ export default function Noter({title, setTitle, key, valgtListe}) {
         const listeId = String(key);
 
         getDownloadURL(uploadImage.snapshot.ref).then((url) => {
-          setDoc(doc(db, "minliste", valgtListe), {
+          setDoc(doc(db, "Arbejde", formData.Beskrivelse), {
             Titel: formData.Titel,
             Beskrivelse: formData.Beskrivelse,
             imageUrl: url,
