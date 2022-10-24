@@ -94,6 +94,12 @@ textarea.form-control {
   margin-left: 10px;
 }
 
+.bordernote-active {
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
+}
+
 .btn {
   padding: 0 0.8em 0 0.8em;
 }
