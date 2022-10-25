@@ -16,7 +16,7 @@ const HomePage = () => {
   const [getLists, setGetLists] = useState([]);
   const minListeRef = collection(db, "Arbejde");
 
-  useEffect(() => {
+ /*  useEffect(() => {
       const q = query(minListeRef)
       const unsubscribe = onSnapshot(q, (querySnapshot) => {
           let listsArray = []
@@ -24,10 +24,10 @@ const HomePage = () => {
               listsArray.push({...doc.data(), id: doc.id})
           });
           setGetLists(listsArray)
-          console.log(listsArray)
+          
       })
       return () => unsubscribe()
-  }, [])
+  }, [minListeRef]) */
 
 
   // Tilføjer ny liste til firebase
