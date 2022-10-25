@@ -14,18 +14,18 @@ export default function Noter({valgtListe}) {
 
 
   //Viser ALLE ToDos fra ALLE Lister
-  useEffect(() => {
-    const noterRef = collection(db, "Arbejde");
-    const q = query(noterRef, orderBy("oprettet", "desc"));
-    onSnapshot(q, (snapshot) => {
-      const noter = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setNoter(noter);
-      console.log(noter);
-    });
-  }, []);
+  // useEffect(() => {
+  //   const noterRef = collection(db, "Arbejde");
+  //   const q = query(noterRef, orderBy("oprettet", "desc"));
+  //   onSnapshot(q, (snapshot) => {
+  //     const noter = snapshot.docs.map((doc) => ({
+  //       id: doc.id,
+  //       ...doc.data(),
+  //     }));
+  //     setNoter(noter);
+  //     console.log(noter);
+  //   });
+  // }, []);
 
   const [active, setActive] = useState("bordernote");
   const [activetwo, setActivetwo] = useState("flex-box");
@@ -65,18 +65,16 @@ export default function Noter({valgtListe}) {
     Beskrivelse: "",
     image: "",
     oprettet: Timestamp.now().toDate(),
-  });
+  }, []);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+
 
   setDoc(doc(db, "Arbejde", "Kaffe"), {
     Titel: formData.Titel,
     Beskrivelse: formData.Beskrivelse,
     imageUrl: "https://firebasestorage.googleapis.com/v0/b/to-do-25365.appspot.com/o/images%2F1666606519547undefined?alt=media&token=0541a9e8-fe10-4e25-80e5-73290714d07c",
     oprettet: Timestamp.now().toDate(),
-  });
+  }, []);
 
 
   return (
@@ -97,12 +95,11 @@ export default function Noter({valgtListe}) {
             <div className={active} key={id}>
               <div className="row">
                 <div className={activethree}>
-                    <input for="update" type="text" placeholder={id} onChange={handleChange} name="Beskrivelse"></input>
+                    <input for="update" type="text" placeholder={id}  name="Beskrivelse"></input>
                   <p>{oprettet.toDate().toDateString()}</p>
                   <DeleteNote id={id} />
                 </div>
               </div>
-
             </div>
           ))
         )}

@@ -15,11 +15,11 @@ export default function Noter({title, setTitle, key}) {
     Beskrivelse: "",
     image: "",
     oprettet: Timestamp.now().toDate(),
-  });
+  }, []);
 
   const [progress, setProgress] = useState(0);
 
-  const handleChange = (e) => {
+  const handle = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -55,7 +55,7 @@ export default function Noter({title, setTitle, key}) {
           Titel: "",
           Beskrivelse: "",
           oprettet: ""
-        });
+        }, []);
         
 
         // Add's todo to list
@@ -77,7 +77,7 @@ export default function Noter({title, setTitle, key}) {
             .catch((err) => {
               toast("Error adding article", { type: "error" });
             });
-        });
+        }, []);
       }
     );
   };
@@ -92,7 +92,7 @@ export default function Noter({title, setTitle, key}) {
         className="form-control"
         value={formData.Beskrivelse}
         placeholder="Hvad vil du gerne have gjort?"
-        onChange={(e) => handleChange(e)}
+        // onChange={handleChange}
       />
 
       <div className="pick-day">
