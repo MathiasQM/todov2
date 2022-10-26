@@ -3,10 +3,9 @@ import { useState } from "react";
 import './minelister.css';
 import { IoIosNotificationsOutline } from 'react-icons/io';
 import { IoIosNotificationsOff } from 'react-icons/io';
+import { AiOutlineUsergroupAdd } from 'react-icons/ai';
 import Liste from './liste/Liste'
-
-
-
+import { IoMdArrowDropdown } from 'react-icons/io';
 
 const MineLister = ({getLists, handleSubmit, title, setTitle, valgtListe, setValgtListe}) => {
 
@@ -23,7 +22,7 @@ const MineLister = ({getLists, handleSubmit, title, setTitle, valgtListe, setVal
   return (
     <section>
         <div onClick={listToggle}>
-            <h3>Mine Lister</h3>
+            <h3>Mine Lister <IoMdArrowDropdown/></h3>
         </div>
         <div className={active}>     
             <form >
@@ -35,11 +34,12 @@ const MineLister = ({getLists, handleSubmit, title, setTitle, valgtListe, setVal
                 <button className="add-button">Tilføj</button>
             </form>
             <form>
-                <div >
-                <IoIosNotificationsOff/>
-                <IoIosNotificationsOutline />
+                <div className='notifications'>
+                    <IoIosNotificationsOff className='icon'/>
+                    <IoIosNotificationsOutline className='icon'/>
+                    <AiOutlineUsergroupAdd className='icon'/>
                 </div>
-                <label for="colorpicker">Vælg farvetema</label>
+                <label className='color' for="colorpicker">Vælg farvetema</label>
                 <input type="color" id="colorpicker" value="#0000ff"></input>
                 {getLists.map((getList) => (
                         <Liste 

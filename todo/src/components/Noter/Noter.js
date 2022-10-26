@@ -4,6 +4,7 @@ import { db } from "../../firebaseConfig";
 import DeleteNote from "./DeleteNote";
 import "./noter.css";
 import { AiOutlineUnorderedList } from "react-icons/ai";
+import {FiEdit2} from "react-icons/fi"
 import BlockIcon from "./blockicon.svg"
 
 
@@ -88,6 +89,7 @@ export default function Noter({valgtListe}) {
           <img src={BlockIcon} alt="BlockIcon" className='block-icon' onClick={blockToggle}/>
         </div>
       </div>
+      <h2 className="valgt-liste">Mine Lister</h2>
       <div className={activetwo}>
         {noter.length === 0 ? (
           <p>Igen noter fundet</p>
@@ -97,6 +99,7 @@ export default function Noter({valgtListe}) {
               <div className="row">
                 <div className={activethree}>
                     <input for="update" type="text" placeholder={id}  name="Beskrivelse"></input>
+                    <FiEdit2/>
                   <p>{oprettet.toDate().toDateString()}</p>
                   <DeleteNote id={id} />
                 </div>
