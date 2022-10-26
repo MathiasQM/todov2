@@ -26,7 +26,7 @@ const HomePage = () => {
           setGetLists(listsArray)
           
       })
-      return () => unsubscribe()
+      return unsubscribe
   }, [minListeRef]) */
 
 

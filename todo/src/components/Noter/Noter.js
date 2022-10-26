@@ -25,6 +25,7 @@ export default function Noter({valgtListe}) {
   //     setNoter(noter);
   //     console.log(noter);
   //   });
+  //     return useEffect;
   // }, []);
 
   const [active, setActive] = useState("bordernote");
