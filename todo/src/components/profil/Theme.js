@@ -23,11 +23,6 @@ const Theme = () => {
 
   // Change theme
 
-  useEffect(() => {
-      const color = getComputedStyle(document.documentElement).getPropertyValue('--color-bg-opacity')
-      const topBorderColor = getComputedStyle(document.documentElement).getPropertyValue('--note-topborder-color')
-
-  }, []);
 
   function setColor(color, bgSecondary, textColor) {
     document.documentElement.style.setProperty('--color-bg', color)
