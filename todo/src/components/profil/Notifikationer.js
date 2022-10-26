@@ -10,6 +10,8 @@ const notifikationer = () => {
             <p>Aggressiv😈</p>
             <p>Truende🤬</p> 
         </div>
+        <div className='theme-show-box'>
+        </div>
     </div>
   )
 }

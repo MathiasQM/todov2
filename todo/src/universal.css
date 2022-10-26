@@ -5,8 +5,9 @@
     --color-primary: red;
     --color-white: #FFF;
     --color-bg-opacity: rgb(37, 37, 37);
-    --note-topborder-color: #b3ea94;
-    --color-text: var(#000)
+    --note-topborder-color: #94c8ea;
+    --color-text: var(#000);
+    --color-yellow: var(rgb(237, 171, 16));
 
     --transition: all 400ms ease;
 }
@@ -52,6 +53,10 @@ a:hover {
 .btn-primary {
     background: var(--color-primary);
     color: var(--color-bg);
+  }
+
+  .nav-link > svg {
+    color: var(--color-text);
   }
 
   h1,

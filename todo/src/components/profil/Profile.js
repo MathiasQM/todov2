@@ -13,7 +13,7 @@ const ProfilePage = () => {
     <div className='profile-header'>
         <CgProfile className='avatar'/>
 
-        <h1>ssss</h1>
+        <h1>Malte</h1>
     </div>
   )
 }

@@ -50,15 +50,15 @@ p {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-textarea.form-control {
-  background-color: #f2f2f2;
+textarea,.form-control {
+  background-color: var(--bs-bg-opacity);
+
   height: 50%;
   width: 92%;
 }
 
 .lavtodo {
-  background-color: #f2f2f2;
-
+  background-color: var(--color-bg-opacity);
   padding: 1em 1em 1em 1em;
   border-radius: 1em;
   box-shadow: rgb(0 0 0 / 30%) 0px 1px 7px;

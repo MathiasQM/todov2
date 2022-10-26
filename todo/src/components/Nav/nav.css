@@ -1,6 +1,5 @@
 header {
     width: 100vw;
-    
     height: 80px;
     color: white;
     display: flex;
@@ -30,11 +29,14 @@ nav {
     right: 0%;
     color: white;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 header > img {
-position: absolute;
-top: 70px;
+    position: absolute;
+    top: 70px;
 }
 
 .wave {
