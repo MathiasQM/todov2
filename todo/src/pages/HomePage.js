@@ -1,4 +1,6 @@
 import React from "react";
+
+import './homepage.css'
 import MineLister from "../components/HomePage/MineLister.js";
 import Noter from "../components/Noter/Noter";
 import AddNote from "../components/Noter/AddNote";
