@@ -19,7 +19,7 @@ export default function Noter({title, setTitle, key}) {
 
   const [progress, setProgress] = useState(0);
 
-  const handle = (e) => {
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -92,8 +92,7 @@ export default function Noter({title, setTitle, key}) {
         className="form-control"
         value={formData.Beskrivelse}
         placeholder="Hvad vil du gerne have gjort?"
-        // onChange={handleChange}
-      />
+        onChange={(e) => handleChange(e)}/>
 
       <div className="pick-day">
       <div className="addbutton">

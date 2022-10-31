@@ -11,23 +11,34 @@ import BlockIcon from "./blockicon.svg"
 // Henter todos
 
 export default function Noter({valgtListe}) {
+
+  const opdaterNu = () => {
+    const docRef = doc(db, "Skole", "Opgave");
+
+    const data = {
+      Titel: "Test",
+      Beskrivelse: "Test",
+      imageUrl: "url",
+      oprettet: "Timestamp.now().toDate()",
+    };
+    
+    setDoc(docRef, data)
+  }
+
   const [noter, setNoter] = useState([]);
+  const noterRef = collection(db, "Arbejde");
 
-
-  //Viser ALLE ToDos fra ALLE Lister
-  // useEffect(() => {
-  //   const noterRef = collection(db, "Arbejde");
-  //   const q = query(noterRef, orderBy("oprettet", "desc"));
-  //   onSnapshot(q, (snapshot) => {
-  //     const noter = snapshot.docs.map((doc) => ({
-  //       id: doc.id,
-  //       ...doc.data(),
-  //     }));
-  //     setNoter(noter);
-  //     console.log(noter);
-  //   });
-  //     return useEffect;
-  // }, []);
+  useEffect(() => {
+    const q = query(noterRef, orderBy("oprettet", "desc"));
+    onSnapshot(q, (snapshot) => {
+      const noter = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setNoter(noter);
+      console.log(noter);
+    });
+  }, []);
 
   const [active, setActive] = useState("bordernote");
   const [activetwo, setActivetwo] = useState("flex-box");
@@ -59,25 +70,6 @@ export default function Noter({valgtListe}) {
       ? setActivethree("col-9")
       : setActivethree("col-9")
   };
-
-  // Update Todo
-
-  const [formData, setFormData] = useState({
-    Titel: "",
-    Beskrivelse: "",
-    image: "",
-    oprettet: Timestamp.now().toDate(),
-  }, []);
-
-
-
-  setDoc(doc(db, "Arbejde", "Kaffe"), {
-    Titel: formData.Titel,
-    Beskrivelse: formData.Beskrivelse,
-    imageUrl: "https://firebasestorage.googleapis.com/v0/b/to-do-25365.appspot.com/o/images%2F1666606519547undefined?alt=media&token=0541a9e8-fe10-4e25-80e5-73290714d07c",
-    oprettet: Timestamp.now().toDate(),
-  }, []);
-
 
   return (
     <div className="block">

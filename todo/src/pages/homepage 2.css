@@ -1,0 +1,27 @@
+@media only screen and (min-width: 1000px) {
+    .container {
+        display: grid;
+        grid-template-columns: .5fr 1fr;
+    }
+
+    .row {
+        padding-left: 15%;
+        grid-row-start: 3   ;
+  grid-row-end: 2;
+  position: relative;
+  top: -200px;
+    }
+
+    .col-md-8 {
+        padding-left: 10%;
+        order: 1;
+        grid-row-start: 1   ;
+  grid-row-end: 2;
+    }
+
+    section {
+        padding-left: 20%;
+        grid-row-start: 1   ;
+  grid-row-end: 2;
+    }
+}
